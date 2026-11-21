@@ -20,11 +20,25 @@ Always-on operating contract when the plugin is enabled:
 5. **`flow-tools`** — Discover and operate Flow's `Explore tools` gallery (`/project/<id>/tools`: `My Tools`, `Community` spotlight creatives, and 34 curated `Templates` cataloged in `references/tools-catalog.md`) and build custom zero-credit interactive creative apps in `Create tool` (`/project/<id>/create-tool`).
 6. **`flow-sync`** *(manual-only, `disable-model-invocation: true`)* — Explicitly triggered by the user (e.g., `/flow-sync`) to run a strictly read-only, zero-credit live audit of `https://flow.google.com` across 7 canonical surfaces (including `/changelogs`, model pickers, Characters, Scenes/Editor, Download tiers, and Tools; tracked in `references/audit-checklist.md`), diff against this plugin, add newly launched features, fix UI drift, and prune deprecated or removed capabilities.
 
-## Local Installation (Development / Symlink)
+## Installation
+
+### From GitHub (Recommended)
 
 ```bash
-ln -s /Users/wezzard/Artifacts/Repositories/com.github/WeZZard/antigravity-flow \
-  ~/.gemini/config/plugins/antigravity-flow
+agy plugin install https://github.com/WeZZard/antigravity-flow
+```
+
+### Local Development (Symlink)
+
+```bash
+git clone https://github.com/WeZZard/antigravity-flow.git
+ln -s "$(pwd)/antigravity-flow" ~/.gemini/config/plugins/antigravity-flow
+```
+
+Validate the plugin manifest and structure locally:
+
+```bash
+agy plugin validate . --strict
 ```
 
 Then manage or toggle the plugin on Antigravity's Customizations page.
